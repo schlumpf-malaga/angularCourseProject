@@ -1,27 +1,71 @@
-# Project
+# Angular Basics
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+TypeScript based Single Page Application framework
 
-## Development server
+## Setup Work Environment
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Install a Javascript Engine & Package Manager:
+- Node JS  
+https://nodejs.org/en/
 
-## Code scaffolding
+### Install a Command Line Tool
+- Cmder  
+https://cmder.net/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install a Versioning Tool
+- Git  
+https://git-scm.com/downloads
 
-## Build
+### Install an IDE:
+- VSCode:  
+https://code.visualstudio.com/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+VSCode Extensions:
+- Material Icon Theme  
+pkief.material-icon-theme  
+https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
 
-## Running unit tests
+- Prettier - Code formatter  
+esbenp.prettier-vscode  
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular Language Service  
+angular.ng-template  
+https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
 
-## Running end-to-end tests
+- Angular Language Service  
+angular.ng-template  
+https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- NG.42 TS Helpers  
+ng-42.ng-fortytwo-vscode-extension  
+https://marketplace.visualstudio.com/items?itemName=NG-42.ng-fortytwo-vscode-extension
 
-## Further help
+- Angular 8 Snippets - TypeScript, Html, Angular Material, ngRx, RxJS & Flex Layout  
+mikael.angular-beastcode  
+https://marketplace.visualstudio.com/items?itemName=Mikael.Angular-BeastCode
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Angular Extension Pack  
+loiane.angular-extension-pack  
+https://marketplace.visualstudio.com/items?itemName=loiane.angular-extension-pack
+
+### Install Angular Command Line Interface
+
+Open Cmder and execute the following command:
+``` 
+npm install -g @angular/cli
+```
+
+### Create a Github Account if necessary
+
+https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home
+
+### Fork this Repository
+Click on the Fork button in the top right corner
+
+### Clone your forked Repository to your Computer
+In Cmder
+```
+git clone URL_TO_YOUR_REPOSITORY /project
+git pull --all
+```
