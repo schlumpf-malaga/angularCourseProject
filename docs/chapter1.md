@@ -31,6 +31,6 @@ Binds HTML attributes to host block
 - :host  
 Angular CSS Pseudo Selector for host block
 
-Exercise:
-
+## Exercise:
+Display the sample schedule data in [ScheduleComponent](../src/app/areas/external/views/schedule/schedule.component.html)
 
