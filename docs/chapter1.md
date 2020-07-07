@@ -31,6 +31,12 @@ Binds HTML attributes to host block
 - :host  
 Angular CSS Pseudo Selector for host block
 
+- datePipe  
+For displaying dates
+
+- ngFor
+For displaying arrays
+
 ## Exercise:
 Display the sample schedule data in [ScheduleComponent](../src/app/areas/external/views/schedule/schedule.component.html)
 
