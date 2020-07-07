@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'constants/colors';
+
+* {
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/assets/fonts/Roboto-Regular.ttf');
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, sans-serif;
+	background-color: $colors__background;
+	color: $colors__text;
+}
+
+a {
+	color: $colors__text;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&.app-a-block {
+		display: block;
+		margin: 0.5rem;
+		border-radius: 0 10px;
+		padding: 0.5rem;
+		text-align: center;
+		background-color: $colors__background--light;
+	}
+}
+
+.app-title-block {
+	margin: 0;
+	padding: 1rem;
+	background-color: $colors__primary;
+	color: $colors__text--light;
+}
+
+.app-button {
+	background-color: $colors__primary;
+	padding: 0.3rem 1.5rem;
+	border-radius: 0 15px;
+	border: 3px solid $colors__primary--light;
+	color: $colors__text--light;
+
+	&:hover {
+		cursor: pointer;
+		background-color: $colors__primary--light;
+	}
+
+	&--full-width {
+		width: 100%;
+		font-size: 1.5rem;
+	}
+}
+
+.app-content-wrapper {
+	max-width: 940px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.app-label {
+	display: block;
+	font-weight: bold;
+	color: $colors__primary--dark;
+	margin-bottom: 0.5rem;
+}
+
+.app-input {
+	display: block;
+	width: 100%;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	border-radius: 0 15px;
+	border: 1px solid $colors__primary;
+
+	&.ng-invalid.ng-touched {
+		border-color: $colors__secondary;
+	}
+}
