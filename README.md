@@ -64,7 +64,7 @@ https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&s
 Click on the Fork button in the top right corner
 
 ### Clone your forked Repository to your Computer
-In Cmder
+In Cmder, navigate to your created Course Directory
 ```
 git clone URL_TO_YOUR_REPOSITORY project
 git pull --all
@@ -78,3 +78,6 @@ In Cmder
 ```
 git checkout chapter/1
 ```
+
+and open the first instructions:  
+link
