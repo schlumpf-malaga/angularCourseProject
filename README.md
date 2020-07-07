@@ -80,4 +80,4 @@ git checkout chapter/1
 ```
 
 and open the first instructions:  
-link
+[chapter1.md](/docs/chapter1.md)
