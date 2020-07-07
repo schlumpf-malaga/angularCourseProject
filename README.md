@@ -66,6 +66,15 @@ Click on the Fork button in the top right corner
 ### Clone your forked Repository to your Computer
 In Cmder
 ```
-git clone URL_TO_YOUR_REPOSITORY /project
+git clone URL_TO_YOUR_REPOSITORY project
 git pull --all
+cd project
+npm install
+npm audit
+```
+
+### Open Chapter 1
+In Cmder
+```
+git checkout chapter/1
 ```
