@@ -38,7 +38,7 @@ For displaying dates
 For displaying arrays
 
 - {{}}  
-Mustasches
+Mustaches for Interpolation
 
 - []  
 attribute binding
