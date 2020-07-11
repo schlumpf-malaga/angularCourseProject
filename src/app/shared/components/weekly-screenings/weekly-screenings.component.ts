@@ -25,7 +25,7 @@ export class WeeklyScreeningsComponent implements OnChanges {
 		const screeningsThisWeek: ScreeningsThisDay[] = [];
 
 		for (let i = 0; i < 7; i++) {
-			const evaluatedDay = moment().startOf('day').add(i, 'days');
+			const evaluatedDay = moment().add(i, 'days');
 
 			const screeningsOnThisDay: Screening[] = [];
 
@@ -48,7 +48,7 @@ export class WeeklyScreeningsComponent implements OnChanges {
 	}
 
 	private _generateDateLabel(date: moment.Moment): string {
-		const today = moment().startOf('day');
+		const today = moment();
 
 		switch (true) {
 			case date.date() === today.date():
