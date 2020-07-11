@@ -19,11 +19,5 @@ export class ScheduleComponent implements OnInit {
 
 interface MovieWithScreenings {
 	movie: MovieShort;
-	screeningsByDay: ScreeningsThisDay[];
-}
-
-interface ScreeningsThisDay {
-	dateLabel: string;
-	date: string;
 	screenings: Screening[];
 }

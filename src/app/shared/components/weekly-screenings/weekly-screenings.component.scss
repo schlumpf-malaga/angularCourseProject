@@ -1,0 +1,19 @@
+@import 'constants/colors';
+
+.app-weekly-screenings {
+	&:host {
+		display: flex;
+		background-color: $colors__primary--light;
+	}
+
+	&__column {
+		width: (100 / 7) + 0%;
+	}
+
+	&__header {
+		padding: 0.5rem 0;
+		color: $colors__text--light;
+		text-align: center;
+		background-color: $colors__primary;
+	}
+}
