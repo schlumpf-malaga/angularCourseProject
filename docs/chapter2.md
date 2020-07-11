@@ -8,6 +8,10 @@ ng new input
 ```
 Follow the general demonstration
 
+```
+npm install
+```
+
 Follow the creation of the movie-card component
 
 ## General Information
