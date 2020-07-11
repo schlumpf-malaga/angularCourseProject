@@ -26,4 +26,5 @@ only checks for changes when input reference changed, event fired in component o
 
 
 ## Exercise:
+Create a movie-card component which takes a `movie` as input and uses ng-content, and use it in  [ScheduleComponent](../src/app/areas/external/views/schedule/schedule.component.html)
 Create a movie-summary-line component which takes a `movie` as input and use it in  [ScheduleComponent](../src/app/areas/external/views/schedule/schedule.component.html)
