@@ -1,10 +1,11 @@
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { MovieShort } from '@core/interfaces/movie.interface';
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
 @Component({
 	selector: 'app-movie-card',
 	templateUrl: './movie-card.component.html',
 	styleUrls: ['./movie-card.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieCardComponent {
 	@HostBinding() class = 'app-movie-card';
