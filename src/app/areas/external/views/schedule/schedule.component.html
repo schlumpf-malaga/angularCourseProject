@@ -10,18 +10,10 @@
 					class="app-schedule__weekly-screenings"
 					[screenings]="movieWithScreenings.screenings"
 				></app-weekly-screenings>
-				<div class="app-schedule__summary-line app-movie-summary-line">
-					<strong>Genre:</strong>
-					{{ movieWithScreenings.movie.genre }},
-					<strong>FSK:</strong>
-					{{ movieWithScreenings.movie.fsk }},
-					<strong>Length:</strong>
-					{{ movieWithScreenings.movie.length }} minutes,
-					<strong>Production Year:</strong>
-					{{ movieWithScreenings.movie.productionYear }},
-					<strong>Release:</strong>
-					{{ movieWithScreenings.movie.releaseDate | date }},
-				</div>
+				<app-movie-summary-line
+					class="app-schedule__summary-line"
+					[movie]="movieWithScreenings.movie"
+				></app-movie-summary-line>
 			</div>
 		</div>
 	</div>

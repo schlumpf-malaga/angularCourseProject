@@ -5,9 +5,10 @@ import { ScheduleComponent } from './areas/external/views/schedule/schedule.comp
 import { WeeklyScreeningsComponent } from './shared/components/weekly-screenings/weekly-screenings.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { MovieSummaryLineComponent } from './shared/components/movie-summary-line/movie-summary-line.component';
 
 @NgModule({
-	declarations: [AppComponent, ScheduleComponent, WeeklyScreeningsComponent, HeaderComponent, FooterComponent],
+	declarations: [AppComponent, ScheduleComponent, WeeklyScreeningsComponent, HeaderComponent, FooterComponent, MovieSummaryLineComponent],
 	imports: [BrowserModule],
 	providers: [],
 	bootstrap: [AppComponent],
