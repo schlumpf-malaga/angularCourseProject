@@ -1,20 +1,14 @@
 <div class="app-content-wrapper">
-	<div class="app-schedule__movie-card app-movie-card" *ngFor="let movieWithScreenings of moviesWithScreenings">
-		<h2 class="app-movie-card__title">{{ movieWithScreenings.movie.title }}</h2>
-		<div class="app-movie-card__poster">
-			<img alt="" [src]="movieWithScreenings.movie.posterUrl" />
+	<app-movie-card *ngFor="let movieWithScreenings of moviesWithScreenings" [movie]="movieWithScreenings.movie">
+		<div class="app-schedule__movie-card__content-wrapper">
+			<app-weekly-screenings
+				class="app-schedule__weekly-screenings"
+				[screenings]="movieWithScreenings.screenings"
+			></app-weekly-screenings>
+			<app-movie-summary-line
+				class="app-schedule__summary-line"
+				[movie]="movieWithScreenings.movie"
+			></app-movie-summary-line>
 		</div>
-		<div class="app-movie-card__content">
-			<div class="app-schedule__movie-card__content-wrapper">
-				<app-weekly-screenings
-					class="app-schedule__weekly-screenings"
-					[screenings]="movieWithScreenings.screenings"
-				></app-weekly-screenings>
-				<app-movie-summary-line
-					class="app-schedule__summary-line"
-					[movie]="movieWithScreenings.movie"
-				></app-movie-summary-line>
-			</div>
-		</div>
-	</div>
+	</app-movie-card>
 </div>

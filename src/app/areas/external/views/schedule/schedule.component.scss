@@ -26,37 +26,6 @@
 	}
 }
 
-.app-movie-card {
-	display: grid;
-	grid-template:
-		'title title'
-		'poster content' 1fr / 0fr 1fr;
-	background-color: $colors__background--light;
-	margin-bottom: 3rem;
-	border-radius: 0 30px;
-	overflow: hidden;
-
-	&__title {
-		grid-area: title;
-		margin: 0;
-		padding: 1rem;
-		color: $colors__text--light;
-		background-color: $colors__primary--dark;
-	}
-
-	&__poster {
-		grid-area: poster;
-
-		> img {
-			display: block;
-		}
-	}
-
-	&__content {
-		position: relative;
-	}
-}
-
 .app-weekly-screenings {
 	display: flex;
 	background-color: $colors__primary--light;
