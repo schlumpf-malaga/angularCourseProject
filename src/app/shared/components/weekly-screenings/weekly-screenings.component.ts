@@ -25,7 +25,7 @@ export class WeeklyScreeningsComponent implements OnChanges {
 		const screeningsThisWeek: ScreeningsThisDay[] = [];
 
 		for (let i = 0; i < 7; i++) {
-			const evaluatedDay = moment().add(i, 'days');
+			const evaluatedDay = moment(1594116000000).add(i, 'days');
 
 			const screeningsOnThisDay: Screening[] = [];
 
