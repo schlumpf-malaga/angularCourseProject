@@ -1,0 +1,19 @@
+@import 'constants/colors';
+
+.app-footer {
+	&:host{
+		display: block;
+		margin-top: 3rem;
+		background-color: $colors__primary--dark;
+	}
+
+	&__link-container {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__link {
+		padding: 2rem 2rem 2rem 0;
+		color: $colors__text--light;
+	}
+}
