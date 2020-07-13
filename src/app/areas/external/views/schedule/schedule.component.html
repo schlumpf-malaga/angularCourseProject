@@ -1,5 +1,5 @@
 <div class="app-content-wrapper">
-	<app-movie-card *ngFor="let movieWithScreenings of moviesWithScreenings" [movie]="movieWithScreenings.movie">
+	<app-movie-card *ngFor="let movieWithScreenings of moviesWithScreenings$ | async" [movie]="movieWithScreenings.movie">
 		<div class="app-schedule__movie-card__content-wrapper">
 			<app-weekly-screenings
 				class="app-schedule__weekly-screenings"
