@@ -17,4 +17,4 @@ replaces contents of \<router-outlet> based on address bar
 
 
 ## Exercise:
-Implement the [MovieService](../src/app/core/services/movie/movie.service.ts) and the [ScreeningsService](../src/app/core/services/schedule/screenings.service.ts) into the [ScheduleComponent](../src/app/areas/external/views/schedule/schedule.component.html)
+Implement routing in the [AppComponent](../src/app/app.component.html)
