@@ -9,7 +9,12 @@ import { MovieCardComponent } from '@shared/components/movie-card/movie-card.com
 import { MovieSummaryLineComponent } from '@shared/components/movie-summary-line/movie-summary-line.component';
 import { WeeklyScreeningsComponent } from '@shared/components/weekly-screenings/weekly-screenings.component';
 import { AppComponent } from './app.component';
+import { LocationComponent } from './areas/external/views/location/location.component';
 import { ScheduleComponent } from './areas/external/views/schedule/schedule.component';
+import { LoginComponent } from './areas/external/views/login/login.component';
+import { SeatSelectionComponent } from './areas/external/views/seat-selection/seat-selection.component';
+import { SelectionsComponent } from './areas/external/views/selections/selections.component';
+import { ReservedSeatsComponent } from './areas/internal/views/reserved-seats/reserved-seats.component';
 
 registerLocaleData(localeDe, localeDeExtra);
 
@@ -21,6 +26,11 @@ registerLocaleData(localeDe, localeDeExtra);
 		FooterComponent,
 		MovieSummaryLineComponent,
 		MovieCardComponent,
+		LocationComponent,
+		LoginComponent,
+		SeatSelectionComponent,
+		SelectionsComponent,
+		ReservedSeatsComponent,
 	],
 	imports: [BrowserModule],
 	providers: [...stubServiceProviders, { provide: LOCALE_ID, useValue: 'de' }],
