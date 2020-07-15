@@ -1,46 +1,5 @@
-<div class="app-header">
-	<div class="app-content-wrapper app-header__content-wrapper">
-		<div class="app-header__logo"><a href="#">Awesome Theater</a></div>
-		<div class="app-header__menu">
-			<a
-				class="app-header__menu__item"
-				href="#"
-				[ngClass]="{ 'app-header__menu__item--active': currentComponent === 'shedule' }"
-				(click)="currentComponent = 'shedule'"
-			>
-				Schedule
-			</a>
-			<a
-				class="app-header__menu__item"
-				href="#"
-				[ngClass]="{ 'app-header__menu__item--active': currentComponent === 'selections' }"
-				(click)="currentComponent = 'selections'"
-			>
-				Selections [0]
-			</a>
-			<a
-				class="app-header__menu__item"
-				href="#"
-				[ngClass]="{ 'app-header__menu__item--active': currentComponent === 'location' }"
-				(click)="currentComponent = 'location'"
-			>
-				Location
-			</a>
-			<a
-				class="app-header__menu__item"
-				href="#"
-				[ngClass]="{ 'app-header__menu__item--active': currentComponent === 'login' }"
-				(click)="currentComponent = 'login'"
-			>
-				Internal
-			</a>
-		</div>
-	</div>
-</div>
+<app-header></app-header>
 
-<app-schedule *ngIf="currentComponent === 'shedule'"></app-schedule>
-<app-selections *ngIf="currentComponent === 'selections'"></app-selections>
-<app-location *ngIf="currentComponent === 'location'"></app-location>
-<app-login *ngIf="currentComponent === 'login'"></app-login>
+<router-outlet></router-outlet>
 
 <app-footer></app-footer>
