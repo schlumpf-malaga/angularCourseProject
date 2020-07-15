@@ -66,11 +66,9 @@ Click on the Fork button in the top right corner
 ### Clone your forked Repository to your Computer
 In Cmder, navigate to your created Course Directory
 ```
-git clone URL_TO_YOUR_REPOSITORY project
-git pull --all
+git clone \<url_to_your_forked_project> project
 cd project
 npm install
-npm audit
 ```
 
 ### Open Chapter 1
