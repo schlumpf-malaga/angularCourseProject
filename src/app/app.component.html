@@ -38,9 +38,11 @@
 	</div>
 </div>
 
-<app-schedule *ngIf="currentComponent === 'shedule'"></app-schedule>
-<app-selections *ngIf="currentComponent === 'selections'"></app-selections>
-<app-location *ngIf="currentComponent === 'location'"></app-location>
-<app-login *ngIf="currentComponent === 'login'"></app-login>
+<ng-container [ngSwitch]="currentComponent">
+	<app-schedule *ngSwitchCase="'shedule'"></app-schedule>
+	<app-selections *ngSwitchCase="'selections'"></app-selections>
+	<app-location *ngSwitchCase="'location'"></app-location>
+	<app-login *ngSwitchCase="'login'"></app-login>
+</ng-container>
 
 <app-footer></app-footer>
