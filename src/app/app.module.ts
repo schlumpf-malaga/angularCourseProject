@@ -17,6 +17,10 @@ import { SeatSelectionComponent } from './areas/external/views/seat-selection/se
 import { SelectionsComponent } from './areas/external/views/selections/selections.component';
 import { ReservedSeatsComponent } from './areas/internal/views/reserved-seats/reserved-seats.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { MovieSummaryComponent } from './shared/components/movie-summary/movie-summary.component';
+import { SeatComponent } from './shared/components/seat/seat.component';
+import { SelectionsListingComponent } from './shared/components/selections-listing/selections-listing.component';
+import { SeatSelectorComponent } from './shared/container/seat-selector/seat-selector.component';
 
 registerLocaleData(localeDe, localeDeExtra);
 
@@ -26,7 +30,7 @@ const routes: Routes = [
 		component: ScheduleComponent,
 	},
 	{
-		path: 'seat-selection/:id',
+		path: 'seat-selection/:screeningId',
 		component: SeatSelectionComponent,
 	},
 	{
@@ -59,11 +63,15 @@ const routes: Routes = [
 		LocationComponent,
 		LoginComponent,
 		MovieCardComponent,
+		MovieSummaryComponent,
 		MovieSummaryLineComponent,
 		ReservedSeatsComponent,
 		ScheduleComponent,
+		SeatComponent,
 		SeatSelectionComponent,
+		SeatSelectorComponent,
 		SelectionsComponent,
+		SelectionsListingComponent,
 		WeeklyScreeningsComponent,
 	],
 	imports: [BrowserModule, RouterModule.forRoot(routes)],

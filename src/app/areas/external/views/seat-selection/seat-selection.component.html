@@ -1,3 +1,18 @@
-<div class="app-content-wrapper">
-	<p>seat-selection works!</p>
+<div class="app-content-wrapper app-seat-selection__wrapper">
+	<h2 class="app-seat-selection__title">{{ (movie$ | async)?.title }}</h2>
+	<div class="app-seat-selection__movie-overview">
+		<div class="app-seat-selection__poster"><img [src]="(movie$ | async)?.posterUrl" alt="" /></div>
+		<app-movie-summary class="app-seat-selection__movie-summary" [movie]="movie$ | async"></app-movie-summary>
+	</div>
+	<app-seat-selector
+		class="app-seat-selection__seat-selector"
+		[screening]="screening$ | async"
+		[theater]="theater"
+		[reservations]="reservations$ | async"
+		[selections]="selections"
+	></app-seat-selector>
+	<app-selections-listing
+		class="app-seat-selection__seat-selection-summary"
+		[selections]="selections"
+	></app-selections-listing>
 </div>

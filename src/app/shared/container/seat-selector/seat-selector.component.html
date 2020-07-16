@@ -1,0 +1,34 @@
+<h3 class="app-seat-selector__title app-title-block">
+	{{ screening?.time | date: 'longDate' }} - {{ screening?.time | date: 'shortTime' }}
+</h3>
+<div class="app-seat-selector__screen">screen</div>
+<div class="app-seat-selector__seats">
+	<div class="app-seat-selector__seats__row" *ngFor="let row of rowsOfSeats">
+		<app-seat
+			class="app-seat-selector__seats__seat"
+			*ngFor="let seat of row.seats"
+			[isReserved]="seat.isReserved"
+			[isSelected]="seat.isSelected"
+			[ngStyle]="seat.ngStyle"
+		>
+			{{ seat.id }}
+		</app-seat>
+	</div>
+</div>
+<div class="app-seat-selector__legend">
+	<div class="app-seat-selector__legend__row">
+		<app-seat class="app-seat-selector__legend__seat" [isUnchangeable]="true"></app-seat>
+		<div class="app-seat-selector__legend__label">free</div>
+	</div>
+	<div class="app-seat-selector__legend__row">
+		<app-seat class="app-seat-selector__legend__seat" [isReserved]="true" [isUnchangeable]="true"></app-seat>
+		<div class="app-seat-selector__legend__label">reserved</div>
+	</div>
+	<div class="app-seat-selector__legend__row">
+		<app-seat class="app-seat-selector__legend__seat" [isSelected]="true" [isUnchangeable]="true"></app-seat>
+		<div class="app-seat-selector__legend__label">currently selected</div>
+	</div>
+</div>
+<div class="app-seat-selector__buttons">
+	<button class="app-seat-selector__button app-button">Reset Selection</button>
+</div>
