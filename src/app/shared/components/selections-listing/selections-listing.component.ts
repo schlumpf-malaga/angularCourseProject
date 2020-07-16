@@ -14,7 +14,7 @@ export class SelectionsListingComponent implements OnChanges {
 	selectionsByRow: { rowId: number; seats: number[] }[] = [];
 
 	ngOnChanges(changes: SimpleChanges) {
-		if (changes.selections?.currentValue !== undefined) {
+		if (changes.selections?.currentValue) {
 			this._onChanges_selections(changes.selections.currentValue);
 		}
 	}
@@ -34,6 +34,8 @@ export class SelectionsListingComponent implements OnChanges {
 				});
 			}
 		});
+
+		selectionsByRow.sort((a, b) => a.rowId - b.rowId);
 
 		this.selectionsByRow = selectionsByRow.map((sbr) => {
 			return {
