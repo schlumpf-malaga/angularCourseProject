@@ -27,11 +27,9 @@ export class SeatSelectorComponent implements OnChanges {
 		}
 
 		if (changes.selections?.currentValue) {
-			console.log(changes.selections.currentValue);
 			this._onChange_selections(changes.selections.currentValue);
 		}
 		if (changes.reservations?.currentValue) {
-			console.log(changes.reservations);
 			this._onChange_reservations(changes.reservations.currentValue);
 		}
 	}

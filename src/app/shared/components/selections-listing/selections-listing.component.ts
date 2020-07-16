@@ -35,6 +35,8 @@ export class SelectionsListingComponent implements OnChanges {
 			}
 		});
 
+		selectionsByRow.sort((a, b) => a.rowId - b.rowId);
+
 		this.selectionsByRow = selectionsByRow.map((sbr) => {
 			return {
 				...sbr,
