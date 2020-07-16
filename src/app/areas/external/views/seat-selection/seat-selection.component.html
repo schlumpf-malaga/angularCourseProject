@@ -10,6 +10,8 @@
 		[theater]="theater"
 		[reservations]="reservations$ | async"
 		[selections]="selections"
+		(toggleSeat)="onToggleSeat_SeatSelector($event)"
+		(resetSelection)="onResetSelection_SeatSelector()"
 	></app-seat-selector>
 	<app-selections-listing
 		class="app-seat-selection__seat-selection-summary"

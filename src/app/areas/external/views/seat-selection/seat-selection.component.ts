@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { theater } from '@core/constants/theater.constant';
+import { onToggleSeat_SeatSelector } from '@core/events/onToggleSeat_SeatSelector.interface';
 import { MovieLong } from '@core/interfaces/movie.interface';
 import { Reservation } from '@core/interfaces/reservation.interface';
 import { Screening } from '@core/interfaces/screening.interface';
@@ -73,6 +74,20 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this._destroyed.next();
 		this._destroyed.complete();
+	}
+
+	onToggleSeat_SeatSelector(event: onToggleSeat_SeatSelector) {
+		this.screening$.subscribe((s) => {
+			this._toogleSelection({
+				screeningId: s.id,
+				rowId: event.rowId,
+				seatId: event.seatId,
+			});
+		});
+	}
+
+	onResetSelection_SeatSelector() {
+		this._resetSelections();
 	}
 
 	private _addSelection(selection: Reservation) {

@@ -10,6 +10,7 @@
 			[isReserved]="seat.isReserved"
 			[isSelected]="seat.isSelected"
 			[ngStyle]="seat.ngStyle"
+			(click)="onClick_Seat(row.id, seat.id)"
 		>
 			{{ seat.id }}
 		</app-seat>
@@ -30,5 +31,7 @@
 	</div>
 </div>
 <div class="app-seat-selector__buttons">
-	<button class="app-seat-selector__button app-button">Reset Selection</button>
+	<button class="app-seat-selector__button app-button" (click)="onClick_ResetSelectionButton()">
+		Reset Selection
+	</button>
 </div>

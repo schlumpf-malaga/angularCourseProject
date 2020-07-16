@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	EventEmitter,
+	HostBinding,
+	Input,
+	OnChanges,
+	Output,
+	SimpleChanges,
+} from '@angular/core';
+import { onToggleSeat_SeatSelector } from '@core/events/onToggleSeat_SeatSelector.interface';
 import { Reservation } from '@core/interfaces/reservation.interface';
 import { Screening } from '@core/interfaces/screening.interface';
 import { Theater } from '@core/interfaces/theater.interface';
@@ -17,6 +27,9 @@ export class SeatSelectorComponent implements OnChanges {
 	@Input() reservations: Reservation[];
 	@Input() selections: Reservation[];
 
+	@Output() resetSelection = new EventEmitter<void>();
+	@Output() toggleSeat = new EventEmitter<onToggleSeat_SeatSelector>();
+
 	rowsOfSeats: RowData[];
 
 	seatStyle: Record<number, Record<string, string>>;
@@ -27,11 +40,9 @@ export class SeatSelectorComponent implements OnChanges {
 		}
 
 		if (changes.selections?.currentValue) {
-			console.log(changes.selections.currentValue);
 			this._onChange_selections(changes.selections.currentValue);
 		}
 		if (changes.reservations?.currentValue) {
-			console.log(changes.reservations);
 			this._onChange_reservations(changes.reservations.currentValue);
 		}
 	}
@@ -54,6 +65,14 @@ export class SeatSelectorComponent implements OnChanges {
 				});
 			});
 		});
+	}
+
+	onClick_Seat(rowId: number, seatId: number) {
+		this.toggleSeat.next({ rowId, seatId });
+	}
+
+	onClick_ResetSelectionButton() {
+		this.resetSelection.next();
 	}
 
 	private _setRowOfSeats() {
