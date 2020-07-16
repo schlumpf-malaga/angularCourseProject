@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 
 @Component({
 	selector: 'app-root',
@@ -7,5 +7,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-	currentComponent = 'shedule';
+	@HostBinding() class = 'app-root';
 }
