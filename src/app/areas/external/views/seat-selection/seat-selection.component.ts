@@ -9,7 +9,7 @@ import { MovieService } from '@core/services/movie/movie.service';
 import { ReservationService } from '@core/services/reservation/reservation.service';
 import { ScreeningsService } from '@core/services/schedule/screenings.service';
 import { forkJoin, ReplaySubject, Subject } from 'rxjs';
-import { concatMap, delay, takeUntil } from 'rxjs/operators';
+import { concatMap, takeUntil } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-seat-selection',
@@ -47,7 +47,6 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
 
 					return this._screeningsService.getScreeningById(params.screeningId);
 				}),
-				delay(1000),
 				takeUntil(this._destroyed),
 				concatMap((screening: Screening) => {
 					this.screening$.next(screening);
