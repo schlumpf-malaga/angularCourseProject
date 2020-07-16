@@ -1,80 +1,20 @@
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import localeDe from '@angular/common/locales/de';
 import localeDeExtra from '@angular/common/locales/extra/de';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 import { stubServiceProviders } from '@core/providers/stubService.provider';
-import { FooterComponent } from '@shared/components/footer/footer.component';
-import { MovieCardComponent } from '@shared/components/movie-card/movie-card.component';
-import { MovieSummaryLineComponent } from '@shared/components/movie-summary-line/movie-summary-line.component';
-import { WeeklyScreeningsComponent } from '@shared/components/weekly-screenings/weekly-screenings.component';
+import { AppFooterModule } from '@shared/components/footer/footer.module';
+import { AppHeaderModule } from '@shared/components/header/header.module';
 import { AppComponent } from './app.component';
-import { LocationComponent } from './areas/external/views/location/location.component';
-import { LoginComponent } from './areas/external/views/login/login.component';
-import { ScheduleComponent } from './areas/external/views/schedule/schedule.component';
-import { SeatSelectionComponent } from './areas/external/views/seat-selection/seat-selection.component';
-import { SelectionsComponent } from './areas/external/views/selections/selections.component';
-import { ReservedSeatsComponent } from './areas/internal/views/reserved-seats/reserved-seats.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { MovieSummaryComponent } from './shared/components/movie-summary/movie-summary.component';
-import { SeatComponent } from './shared/components/seat/seat.component';
-import { SelectionsListingComponent } from './shared/components/selections-listing/selections-listing.component';
-import { SeatSelectorComponent } from './shared/container/seat-selector/seat-selector.component';
+import { AppRoutingModule } from './app.routing.module';
 
 registerLocaleData(localeDe, localeDeExtra);
 
-const routes: Routes = [
-	{
-		path: '',
-		component: ScheduleComponent,
-	},
-	{
-		path: 'seat-selection/:screeningId',
-		component: SeatSelectionComponent,
-	},
-	{
-		path: 'location',
-		component: LocationComponent,
-	},
-	{
-		path: 'selections',
-		component: SelectionsComponent,
-	},
-	{
-		path: 'login',
-		component: LoginComponent,
-	},
-	{
-		path: 'internal/reserved-seats',
-		component: ReservedSeatsComponent,
-	},
-	{
-		path: '**',
-		redirectTo: '',
-	},
-];
-
 @NgModule({
-	declarations: [
-		AppComponent,
-		FooterComponent,
-		HeaderComponent,
-		LocationComponent,
-		LoginComponent,
-		MovieCardComponent,
-		MovieSummaryComponent,
-		MovieSummaryLineComponent,
-		ReservedSeatsComponent,
-		ScheduleComponent,
-		SeatComponent,
-		SeatSelectionComponent,
-		SeatSelectorComponent,
-		SelectionsComponent,
-		SelectionsListingComponent,
-		WeeklyScreeningsComponent,
-	],
-	imports: [BrowserModule, RouterModule.forRoot(routes)],
+	declarations: [AppComponent],
+	imports: [AppFooterModule, AppHeaderModule, AppRoutingModule, BrowserModule, HttpClientModule],
 	providers: [...stubServiceProviders, { provide: LOCALE_ID, useValue: 'de' }],
 	bootstrap: [AppComponent],
 })
