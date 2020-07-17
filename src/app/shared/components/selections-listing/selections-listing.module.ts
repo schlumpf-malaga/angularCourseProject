@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { AppToLetterModule } from '@shared/pipes/to-letter/to-letter.module';
 import { SelectionsListingComponent } from './selections-listing.component';
 
 @NgModule({
 	declarations: [SelectionsListingComponent],
-	imports: [CommonModule],
+	imports: [AppToLetterModule, CommonModule],
 	exports: [SelectionsListingComponent],
 })
 export class AppSelectionsListingModule {}
