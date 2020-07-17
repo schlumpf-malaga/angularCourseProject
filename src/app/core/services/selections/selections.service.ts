@@ -1,22 +1,58 @@
 import { Injectable } from '@angular/core';
 import { Reservation } from '@core/interfaces/reservation.interface';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class SelectionsService {
+	selectedReservations = new BehaviorSubject<Reservation[]>([]);
+
 	getSelections(): Observable<Reservation[]> {
-		return of([]);
+		return this.selectedReservations.asObservable();
 	}
 
-	addSelection(reservation: Reservation): void {}
+	addSelection(reservation: Reservation) {
+		this.selectedReservations.next([...this.selectedReservations.value, reservation]);
+	}
 
-	removeSelection(reservation: Reservation): void {}
+	removeSelection(reservation: Reservation) {
+		this.selectedReservations.next(
+			this.selectedReservations.value.filter((res) => {
+				return !(
+					res.screeningId === reservation.screeningId &&
+					res.rowId === reservation.rowId &&
+					res.seatId === reservation.seatId
+				);
+			})
+		);
+	}
 
-	removeSelectionsByScreeningId(screeningId: string): void {}
+	removeSelectionsByScreeningId(screeningId: string) {
+		this.selectedReservations.next(
+			this.selectedReservations.value.filter((res) => {
+				return res.screeningId !== screeningId;
+			})
+		);
+	}
 
-	toggleSelection(reservation: Reservation): void {}
+	toggleSelection(reservation: Reservation) {
+		if (
+			this.selectedReservations.value.find((res) => {
+				return (
+					res.screeningId === reservation.screeningId &&
+					res.rowId === reservation.rowId &&
+					res.seatId === reservation.seatId
+				);
+			})
+		) {
+			this.removeSelection(reservation);
+		} else {
+			this.addSelection(reservation);
+		}
+	}
 
-	clearSelections(): void {}
+	clearSelections() {
+		this.selectedReservations.next([]);
+	}
 }
