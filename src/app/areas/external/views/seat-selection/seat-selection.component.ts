@@ -94,15 +94,21 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
 	}
 
 	private _toogleSelection(selection: Reservation) {
-		const foundSelectionIndex = this.selections.findIndex((s) => {
-			return s.screeningId === selection.screeningId && s.rowId === selection.rowId && s.seatId === selection.seatId;
-		});
+		this.reservations$.subscribe((reservations) => {
+			if (reservations.find((r) => r.rowId === selection.rowId && r.seatId === selection.seatId)) {
+				return;
+			}
 
-		if (foundSelectionIndex > -1) {
-			this._removeSelection(foundSelectionIndex);
-		} else {
-			this._addSelection(selection);
-		}
+			const foundSelectionIndex = this.selections.findIndex((s) => {
+				return s.screeningId === selection.screeningId && s.rowId === selection.rowId && s.seatId === selection.seatId;
+			});
+
+			if (foundSelectionIndex > -1) {
+				this._removeSelection(foundSelectionIndex);
+			} else {
+				this._addSelection(selection);
+			}
+		});
 	}
 
 	private _resetSelections() {
