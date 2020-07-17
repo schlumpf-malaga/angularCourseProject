@@ -9,8 +9,9 @@ import { Theater } from '@core/interfaces/theater.interface';
 import { MovieService } from '@core/services/movie/movie.service';
 import { ReservationService } from '@core/services/reservation/reservation.service';
 import { ScreeningsService } from '@core/services/schedule/screenings.service';
-import { forkJoin, ReplaySubject, Subject } from 'rxjs';
-import { concatMap, takeUntil } from 'rxjs/operators';
+import { SelectionsService } from '@core/services/selections/selections.service';
+import { forkJoin, Observable, ReplaySubject, Subject } from 'rxjs';
+import { concatMap, map, takeUntil } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-seat-selection',
@@ -25,14 +26,15 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
 		private _activatedRoute: ActivatedRoute,
 		private _movieService: MovieService,
 		private _screeningsService: ScreeningsService,
-		private _reservationService: ReservationService
+		private _reservationService: ReservationService,
+		private _selectionsService: SelectionsService
 	) {}
 
 	movie$ = new ReplaySubject<MovieLong>(1);
 	screening$ = new ReplaySubject<Screening>(1);
 	theater: Theater = theater;
 	reservations$ = new ReplaySubject<Reservation[]>(1);
-	selections: Reservation[] = [];
+	selections$: Observable<Reservation[]>;
 
 	private _destroyed = new Subject<void>();
 
@@ -47,6 +49,15 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
 				concatMap((screening: Screening) => {
 					this.screening$.next(screening);
 					this.screening$.complete();
+
+					this.screening$.subscribe((thisScreening) => {
+						this.selections$ = this._selectionsService.getSelections().pipe(
+							takeUntil(this._destroyed),
+							map((screenings) => {
+								return screenings.filter((s) => s.screeningId === thisScreening.id);
+							})
+						);
+					});
 
 					return forkJoin({
 						movie: this._movieService.getMovie(screening.movieId),
@@ -72,46 +83,20 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
 	}
 
 	onToggleSeat_SeatSelector(event: onToggleSeat_SeatSelector) {
+		const { rowId, seatId } = event;
+
 		this.screening$.subscribe((s) => {
-			this._toogleSelection({
+			this._selectionsService.toggleSelection({
 				screeningId: s.id,
-				rowId: event.rowId,
-				seatId: event.seatId,
+				rowId,
+				seatId,
 			});
 		});
 	}
 
 	onResetSelection_SeatSelector() {
-		this._resetSelections();
-	}
-
-	private _addSelection(selection: Reservation) {
-		this.selections = [...this.selections, selection];
-	}
-
-	private _removeSelection(selectionIndex: number) {
-		this.selections = this.selections.filter((_, i) => i !== selectionIndex);
-	}
-
-	private _toogleSelection(selection: Reservation) {
-		this.reservations$.subscribe((reservations) => {
-			if (reservations.find((r) => r.rowId === selection.rowId && r.seatId === selection.seatId)) {
-				return;
-			}
-
-			const foundSelectionIndex = this.selections.findIndex((s) => {
-				return s.screeningId === selection.screeningId && s.rowId === selection.rowId && s.seatId === selection.seatId;
-			});
-
-			if (foundSelectionIndex > -1) {
-				this._removeSelection(foundSelectionIndex);
-			} else {
-				this._addSelection(selection);
-			}
+		this.screening$.subscribe((s) => {
+			this._selectionsService.removeSelectionsByScreeningId(s.id);
 		});
-	}
-
-	private _resetSelections() {
-		this.selections = [];
 	}
 }

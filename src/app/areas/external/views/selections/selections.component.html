@@ -1,3 +1,18 @@
-<div class="app-content-wrapper">
-	<p>selections works!</p>
+<div class="app-content-wrapper app-selections__wrapper">
+	<h1 class="app-selections__title">Your Selections</h1>
+	<ng-container *ngIf="(moviesScreeningsSelections$ | async)?.length > 0; else noSelections">
+		<div class="app-selections__movie-card-container">
+			<app-movie-card
+				class="app-selections__movie-card"
+				*ngFor="let movieScreeningsSelections of moviesScreeningsSelections$ | async"
+				[movie]="movieScreeningsSelections.movie"
+			>
+				<app-selections-summary [screeningsSelections]="movieScreeningsSelections.screenings"></app-selections-summary>
+			</app-movie-card>
+		</div>
+	</ng-container>
 </div>
+
+<ng-template #noSelections>
+	No Selections. Please select seats from our movies, to make a reservation.
+</ng-template>

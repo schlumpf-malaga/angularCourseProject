@@ -11,7 +11,7 @@
 				Schedule
 			</a>
 			<a class="app-header__menu__item" routerLink="selections" routerLinkActive="app-header__menu__item--active">
-				Selections [0]
+				Selections [{{ amountOfSelections$ | async }}]
 			</a>
 			<a class="app-header__menu__item" routerLink="location" routerLinkActive="app-header__menu__item--active">
 				Location

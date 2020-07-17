@@ -9,12 +9,12 @@
 		[screening]="screening$ | async"
 		[theater]="theater"
 		[reservations]="reservations$ | async"
-		[selections]="selections"
+		[selections]="selections$ | async"
 		(toggleSeat)="onToggleSeat_SeatSelector($event)"
 		(resetSelection)="onResetSelection_SeatSelector()"
 	></app-seat-selector>
 	<app-selections-listing
 		class="app-seat-selection__seat-selection-summary"
-		[selections]="selections"
+		[selections]="selections$ | async"
 	></app-selections-listing>
 </div>
