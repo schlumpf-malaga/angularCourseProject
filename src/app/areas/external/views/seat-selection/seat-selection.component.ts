@@ -41,11 +41,6 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
 			.pipe(
 				takeUntil(this._destroyed),
 				concatMap((params: { screeningId: string }) => {
-					this.selections = [
-						{ screeningId: params.screeningId, rowId: 4, seatId: 10 },
-						{ screeningId: params.screeningId, rowId: 4, seatId: 12 },
-					];
-
 					return this._screeningsService.getScreeningById(params.screeningId);
 				}),
 				takeUntil(this._destroyed),
