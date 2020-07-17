@@ -10,6 +10,6 @@
 		{{ screeningSelections.selections.length }}&nbsp;Selection{{
 			screeningSelections.selections.length > 1 ? 's' : ''
 		}}:<br />
-		{{ screeningSelections.selections | json }}
+		{{ screeningSelections.selections | reservationsToString }}
 	</div>
 </div>
