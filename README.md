@@ -71,11 +71,5 @@ cd project
 npm install
 ```
 
-### Open Chapter 1
-In Cmder
-```
-git checkout chapter/1
-```
-
-and open the first instructions:  
-[chapter1.md](/docs/chapter1.md)
+### Open Chapter 0
+First Instructions are found in [chapter0.md](/docs/chapter0.md)
