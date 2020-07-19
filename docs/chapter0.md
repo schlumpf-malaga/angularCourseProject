@@ -28,21 +28,21 @@ Follow the demonstration
 [Typescript Introction](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html)
 
 ## Summary
-- `npm install -g typescript`  
-installs typescript transpiler globally
-
-- `npm install -g ts-node`  
-generates component
-
-- `typescript <file>.ts`  
-transpiles \<file>.ts into \<file>.js 
-
-- `node <file>.js`  
+- `node <file>.js`
 executes a JavaScript file
 
-- `ts-node <file.ts>`  
+- `npm install -g typescript`
+installs typescript transpiler globally
+
+- `npm install -g ts-node`
+installs `ts-node` command, which allows direct execution of typescript files
+
+- `tsc <file>.ts`
+transpiles \<file>.ts into \<file>.js
+
+- `ts-node <file.ts>`
 executes a Typescript file
 
 ## Finished
-checkout next chapter:  
+checkout next chapter:
 `git checkout chapter/1`
