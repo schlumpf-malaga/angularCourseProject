@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ReservationFormComponent } from './reservation-form.component';
 
 @NgModule({
 	declarations: [ReservationFormComponent],
-	imports: [CommonModule],
+	imports: [CommonModule, ReactiveFormsModule],
 	exports: [ReservationFormComponent],
 })
 export class AppReservationFormModule {}
