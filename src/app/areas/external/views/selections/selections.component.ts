@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
+import { onSubmit_reservationForm } from '@core/events/onSubmit_reservationForm';
 import { MovieShort } from '@core/interfaces/movie.interface';
 import { Reservation } from '@core/interfaces/reservation.interface';
 import { Screening } from '@core/interfaces/screening.interface';
@@ -77,6 +78,21 @@ export class SelectionsComponent implements OnInit {
 				return moviesScreeningsSelections;
 			})
 		);
+	}
+
+	onSubmit__reservationForm(event: onSubmit_reservationForm) {
+		let message = 'Your Reservation was successful!';
+		message += `\nReservation Nr: ${Math.floor(Math.random() * 1000)}`;
+		message += '\n';
+		message += '\nDetails';
+		message += `\nFirst Name: ${event.firstName}`;
+		message += `\nLast Name: ${event.lastName}`;
+		message += `\nemail: ${event.email}`;
+		message += `\nAmout of Seats: ${this._amountOfSelectios}`;
+
+		alert(message);
+
+		this._selectionsService.clearSelections();
 	}
 }
 

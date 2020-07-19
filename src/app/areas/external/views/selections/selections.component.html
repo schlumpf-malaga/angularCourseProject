@@ -10,6 +10,10 @@
 				<app-selections-summary [screeningsSelections]="movieScreeningsSelections.screenings"></app-selections-summary>
 			</app-movie-card>
 		</div>
+		<app-reservation-form
+			class="app-selections__reservation-form"
+			(formSubmit)="onSubmit__reservationForm($event)"
+		></app-reservation-form>
 	</ng-container>
 </div>
 
