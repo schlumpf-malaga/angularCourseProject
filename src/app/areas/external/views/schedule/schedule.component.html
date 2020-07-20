@@ -1,35 +1,37 @@
 <div class="app-content-wrapper">
-	<div *ngFor="let movieWithScreening of moviesWithScreenings" class="app-schedule__movie-card app-movie-card">
-		<h2 class="app-movie-card__title">{{ movieWithScreening.movie.title }}</h2>
+	<div class="app-schedule__movie-card app-movie-card" *ngFor="let movieWithScreenings of moviesWithScreenings">
+		<h2 class="app-movie-card__title">{{ movieWithScreenings.movie.title }}</h2>
 		<div class="app-movie-card__poster">
-			<img alt="" [src]="movieWithScreening.movie.posterUrl" />
+			<img alt="" [src]="movieWithScreenings.movie.posterUrl" />
 		</div>
 		<div class="app-movie-card__content">
 			<div class="app-schedule__movie-card__content-wrapper">
-				<div
-					*ngFor="let screeningByDay of movieWithScreening.screeningsByDay"
-					class="app-schedule__weekly-screenings app-weekly-screenings"
-				>
-					<div class="app-weekly-screenings__column">
+				<div class="app-schedule__weekly-screenings app-weekly-screenings">
+					<div class="app-weekly-screenings__column" *ngFor="let screeningByDay of movieWithScreenings.screeningsByDay">
 						<div class="app-weekly-screenings__header">
 							<div>{{ screeningByDay.dateLabel }}</div>
 							<div>{{ screeningByDay.date }}</div>
 						</div>
-						<div *ngFor="let screening of screeningByDay.screenings">
-							<a class="app-weekly-screenings__cell app-a-block" [href]="'/seat-selection/' + screening.id">
-								{{ screening.time | date: 'shortTime' }}
-							</a>
-						</div>
+						<a
+							class="app-weekly-screenings__cell app-a-block"
+							*ngFor="let screening of screeningByDay.screenings"
+							[href]="'/seat-selection/' + screening.id"
+						>
+							{{ screening.time | date: 'shortTime' }}
+						</a>
 					</div>
 				</div>
 				<div class="app-schedule__summary-line app-movie-summary-line">
-					<strong>Genre:</strong>{{ movieWithScreening.movie.genre }}, <strong>FSK:</strong>
-					{{ movieWithScreening.movie.fsk }}, <strong>Length:</strong
-					>{{ movieWithScreening.movie.length + ' minutes' }},
+					<strong>Genre:</strong>
+					{{ movieWithScreenings.movie.genre }},
+					<strong>FSK:</strong>
+					{{ movieWithScreenings.movie.fsk }},
+					<strong>Length:</strong>
+					{{ movieWithScreenings.movie.length + ' minutes' }},
 					<strong>Production Year:</strong>
-					{{ movieWithScreening.movie.productionYear }},
+					{{ movieWithScreenings.movie.productionYear }},
 					<strong>Release:</strong>
-					{{ movieWithScreening.movie.releaseDate | date }},
+					{{ movieWithScreenings.movie.releaseDate | date }},
 				</div>
 			</div>
 		</div>
