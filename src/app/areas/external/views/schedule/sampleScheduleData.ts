@@ -1,4 +1,4 @@
-export const sampleSheduleData = [
+export const sampleScheduleData = [
 	{
 		movie: {
 			id: '1',
